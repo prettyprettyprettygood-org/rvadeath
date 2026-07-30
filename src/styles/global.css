@@ -1,6 +1,9 @@
+@import '@fontsource-variable/montserrat';
+@import '@fontsource-variable/inter';
+
 :root {
-  --font-body: system-ui, sans-serif;
-  --font-display: system-ui, sans-serif;
+  --font-body: 'Inter Variable', system-ui, sans-serif;
+  --font-display: 'Montserrat Variable', system-ui, sans-serif;
 
   --space-2: 0.5rem;
   --space-3: 0.75rem;
@@ -15,21 +18,21 @@
   --radius-lg: 1.25rem;
   --radius-pill: 999px;
 
-  --shadow-surface: 0 12px 28px rgb(26 35 20 / 0.08);
+  --shadow-surface: 0 12px 28px rgb(48 33 40 / 0.1);
 
-  --tone-bg: #f4f3ea;
-  --tone-bg-accent: #e6efd9;
-  --tone-surface: #fffdf5;
-  --tone-surface-strong: #f1efe3;
-  --tone-text: #1f2a1d;
-  --tone-text-muted: #5a6658;
-  --tone-border: #788e67;
-  --tone-primary: #2f7d4b;
-  --tone-primary-hover: #24623a;
-  --tone-primary-contrast: #f7fff9;
-  --tone-secondary: #245f99;
-  --tone-accent: #8f4d22;
-  --tone-ring: #245f99;
+  --tone-bg: #fbf6f1;
+  --tone-bg-accent: #f4e3e7;
+  --tone-surface: #fffcf9;
+  --tone-surface-strong: #f4e9e4;
+  --tone-text: #2f2429;
+  --tone-text-muted: #6b5560;
+  --tone-border: #cdaeb6;
+  --tone-primary: #99566a;
+  --tone-primary-hover: #7c4256;
+  --tone-primary-contrast: #fef8f6;
+  --tone-secondary: #5c4159;
+  --tone-accent: #9c6a28;
+  --tone-ring: #5c4159;
 }
 
 *,
@@ -85,12 +88,13 @@ h1,
 h2,
 h3 {
   font-family: var(--font-display);
-  line-height: 1.1;
+  font-weight: 700;
+  line-height: 1.15;
   margin: 0;
 }
 
 h1 {
-  font-size: clamp(2.2rem, 5vw, 4.4rem);
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
 }
 
 h2 {

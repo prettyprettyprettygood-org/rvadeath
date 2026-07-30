@@ -6,6 +6,7 @@ import FeatureItem from '../components/ui/FeatureItem.astro';
 import TimelineItem from '../components/ui/TimelineItem.astro';
 import InfoBlock from '../components/ui/InfoBlock.astro';
 import StyledDropdown from '../components/ui/StyledDropdown.astro';
+import Icon from '../components/ui/Icon.astro';
 
 if (!import.meta.env.DEV) {
   return Astro.redirect('/');
@@ -287,53 +288,37 @@ const selectOptions = [
           <ul class="feature-row">
             <FeatureItem title="Accessible by default">
               <Fragment slot="icon">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  aria-hidden="true"
-                >
-                  <path d="M20 6 9 17l-5-5" />
-                </svg>
+                <Icon name="check" size={20} />
               </Fragment>
               Keyboard support and visible focus states come standard with every component.
             </FeatureItem>
             <FeatureItem title="Tokenized styling">
               <Fragment slot="icon">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  aria-hidden="true"
-                >
-                  <circle cx="12" cy="12" r="9" />
-                </svg>
+                <Icon name="circle" size={20} />
               </Fragment>
               Colors, spacing, and radii all pull from shared design tokens.
             </FeatureItem>
             <FeatureItem title="Composable by design">
               <Fragment slot="icon">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  aria-hidden="true"
-                >
-                  <rect x="4" y="4" width="16" height="16" rx="3" />
-                </svg>
+                <Icon name="square" size={20} />
               </Fragment>
               Mix and match layout primitives instead of defaulting to a card grid.
             </FeatureItem>
           </ul>
+        </article>
+
+        <article class="demo-component stack" id="component-icon">
+          <h3 class="demo-component__name">Component: Icon</h3>
+          <p class="demo-component__hint">
+            Renders an inlined Lucide SVG by name from lucide-static. Decorative by default
+            (aria-hidden); pass a title prop for standalone meaningful icons.
+          </p>
+          <div class="hero-actions">
+            <Icon name="heart" size={28} />
+            <Icon name="users" size={28} />
+            <Icon name="mail" size={28} />
+            <Icon name="map-pin" size={28} />
+          </div>
         </article>
 
         <article class="demo-component stack" id="component-timeline-item">

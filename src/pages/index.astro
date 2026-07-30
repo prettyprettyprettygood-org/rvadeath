@@ -1,56 +1,142 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/ui/Button.astro';
-import Card from '../components/ui/Card.astro';
+import FeatureItem from '../components/ui/FeatureItem.astro';
+import TimelineItem from '../components/ui/TimelineItem.astro';
+import InfoBlock from '../components/ui/InfoBlock.astro';
+import Icon from '../components/ui/Icon.astro';
+import { SITE } from '../config/site';
 ---
 
-<BaseLayout
-  title="Astro Project Template"
-  description="Reusable Astro starter for accessible, mission-first websites with strong defaults."
->
-  <section class="section hero stack">
-    <p class="kicker">Home Page Template</p>
-    <h1>Use this as your primary project canvas.</h1>
-    <p class="hero-copy">
-      Keep this page focused on your client story. For building and naming reusable pieces, use the
-      Example page component catalog.
-    </p>
+<BaseLayout title={SITE.name} description={SITE.description}>
+  <section class="section hero">
+    <div class="grid grid-2 hero-grid">
+      <div class="hero-photo">
+        <img
+          src="/support.jpg"
+          alt="Four friends stand arm in arm on a hillside, backs to the camera, looking out over a sunlit valley."
+          width="1920"
+          height="1280"
+        />
+      </div>
+      <div class="stack">
+        <p class="kicker">RVA Death Collaborative</p>
+        <h1>A steady hand to hold, when it matters most.</h1>
+        <p class="hero-copy">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus euismod, nunc quis
+          consequat cursus, mi ligula fermentum elit, id feugiat lacus enim id justo.
+        </p>
+        <div class="hero-actions hero-actions--end">
+          <Button href="#get-involved">Become a volunteer</Button>
+          <Button href="#about" variant="outline">Learn more</Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section stack" id="about">
+    <div class="stack">
+      <p class="kicker">About Us</p>
+      <h2>Companioning the dying, their caregivers, and the bereaved.</h2>
+      <p class="hero-copy">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt
+        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+      </p>
+    </div>
+
+    <ul class="feature-row">
+      <FeatureItem title="Presence">
+        <Fragment slot="icon">
+          <Icon name="heart-handshake" size={20} />
+        </Fragment>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+      </FeatureItem>
+      <FeatureItem title="Practical support">
+        <Fragment slot="icon">
+          <Icon name="hand-heart" size={20} />
+        </Fragment>
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.
+      </FeatureItem>
+      <FeatureItem title="Grief companioning">
+        <Fragment slot="icon">
+          <Icon name="users" size={20} />
+        </Fragment>
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.
+      </FeatureItem>
+    </ul>
+  </section>
+
+  <section class="section stack" id="get-involved">
+    <div class="stack">
+      <p class="kicker">Get Involved</p>
+      <h2>How volunteering with us works.</h2>
+      <p class="hero-copy">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis
+        iste natus error sit voluptatem accusantium doloremque laudantium.
+      </p>
+    </div>
+
+    <ol class="timeline">
+      <TimelineItem title="Reach out" eyebrow="Step 1">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+      </TimelineItem>
+      <TimelineItem title="Orientation and training" eyebrow="Step 2">
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
+      </TimelineItem>
+      <TimelineItem title="Get matched" eyebrow="Step 3">
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu.
+      </TimelineItem>
+      <TimelineItem title="Show up with presence" eyebrow="Step 4">
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.
+      </TimelineItem>
+    </ol>
+
     <div class="hero-actions">
-      <Button href="/example" variant="outline">Open Example page</Button>
-      <Button type="button" variant="ghost">Replace this hero copy</Button>
+      <Button href="#contact">Become a volunteer</Button>
     </div>
   </section>
 
-  <section class="section stack">
-    <div>
-      <p class="kicker">Content Structure</p>
-      <h2>Keep section rhythm consistent on every page.</h2>
+  <section class="section stack" id="contact">
+    <div class="stack">
+      <p class="kicker">Contact</p>
+      <h2>Reach out to our team.</h2>
     </div>
-    <div class="grid-3 grid">
-      <Card title="Section spacing" eyebrow="Use shared tokens">
-        Reuse the same section wrapper spacing so every page feels consistent and intentional.
-      </Card>
-      <Card title="Component reuse" eyebrow="No one-off markup">
-        Build pages by arranging shared components from the Example page catalog.
-      </Card>
-      <Card title="Responsive flow" eyebrow="Mobile-first behavior">
-        Keep content stacking predictable by using the approved layout and grid classes.
-      </Card>
-    </div>
-  </section>
 
-  <section class="section stack">
-    <div>
-      <p class="kicker">Working Rules</p>
-      <h2>New pages should start from the Example scaffold.</h2>
-    </div>
-    <div class="grid-2 grid">
-      <Card title="Home and Example first" eyebrow="Default page model">
-        Keep baseline projects to Home and Example so composition stays consistent and easy to manage.
-      </Card>
-      <Card title="Add pages intentionally" eyebrow="Copy the scaffold">
-        When a project needs extra pages, start from the Example structure and replace content blocks.
-      </Card>
+    <div class="stack">
+      <InfoBlock label="Email" href={`mailto:${SITE.contactEmail}`}>
+        {SITE.contactEmail}
+      </InfoBlock>
+      <InfoBlock label="Service area">Richmond, Virginia and the surrounding counties</InfoBlock>
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .hero-grid {
+    align-items: center;
+  }
+
+  .hero-photo img {
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-surface);
+  }
+
+  .hero-actions--end {
+    justify-content: flex-end;
+  }
+
+  @media (width <= 960px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-actions--end {
+      justify-content: flex-start;
+    }
+  }
+</style>

@@ -1,0 +1,28 @@
+---
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+
+interface Props {
+  name: string;
+  size?: number;
+  class?: string;
+  title?: string;
+}
+
+const { name, size = 24, class: className = '', title } = Astro.props;
+
+const iconUrl = new URL(`../../../node_modules/lucide-static/icons/${name}.svg`, import.meta.url);
+const source = readFileSync(fileURLToPath(iconUrl), 'utf-8');
+
+const a11yAttrs = title ? `role="img" aria-label="${title}"` : 'aria-hidden="true" focusable="false"';
+const classAttr = `class="icon${className ? ` ${className}` : ''}"`;
+
+const markup = source
+  .replace(/<!--[\s\S]*?-->/, '')
+  .replace(/width="24"/, `width="${size}"`)
+  .replace(/height="24"/, `height="${size}"`)
+  .replace(/class="[^"]*"/, classAttr)
+  .replace('<svg', `<svg ${a11yAttrs}`);
+---
+
+<Fragment set:html={markup} />
