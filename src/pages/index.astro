@@ -3,13 +3,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/ui/Button.astro';
 import FeatureItem from '../components/ui/FeatureItem.astro';
 import TimelineItem from '../components/ui/TimelineItem.astro';
-import InfoBlock from '../components/ui/InfoBlock.astro';
 import Icon from '../components/ui/Icon.astro';
 import { SITE } from '../config/site';
 ---
 
 <BaseLayout title={SITE.name} description={SITE.description}>
-  <section class="section hero">
+  <section class="section hero" id="home">
     <div class="grid grid-2 hero-grid">
       <div class="hero-photo">
         <img
@@ -78,35 +77,49 @@ import { SITE } from '../config/site';
 
     <ol class="timeline">
       <TimelineItem title="Reach out" eyebrow="Step 1">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+        ut labore et dolore magna aliqua. Fill out our short interest form and a member of our
+        team will follow up within a few days to answer any questions you have.
       </TimelineItem>
       <TimelineItem title="Orientation and training" eyebrow="Step 2">
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Attend a training session covering presence, boundaries, and practical
+        end-of-life support, led by experienced volunteers.
       </TimelineItem>
       <TimelineItem title="Get matched" eyebrow="Step 3">
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu.
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+        nulla pariatur. We'll connect you with a family or individual whose needs fit your
+        availability, skills, and comfort level.
       </TimelineItem>
       <TimelineItem title="Show up with presence" eyebrow="Step 4">
-        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+        anim id est laborum. Visit regularly, offer a steady presence, and lean on our team for
+        support whenever you need it.
       </TimelineItem>
     </ol>
 
-    <div class="hero-actions">
+    <div class="hero-actions hero-actions--center">
       <Button href="#contact">Become a volunteer</Button>
     </div>
   </section>
 
-  <section class="section stack" id="contact">
-    <div class="stack">
+  <section class="section" id="contact">
+    <div class="card contact-card">
+      <div class="contact-icon" aria-hidden="true">
+        <Icon name="mail" size={26} />
+      </div>
       <p class="kicker">Contact</p>
       <h2>Reach out to our team.</h2>
-    </div>
-
-    <div class="stack">
-      <InfoBlock label="Email" href={`mailto:${SITE.contactEmail}`}>
-        {SITE.contactEmail}
-      </InfoBlock>
-      <InfoBlock label="Service area">Richmond, Virginia and the surrounding counties</InfoBlock>
+      <p class="hero-copy">
+        We're here for volunteers, caregivers, and anyone looking for support in Richmond and the
+        surrounding counties.
+      </p>
+      <div class="hero-actions hero-actions--center">
+        <Button href={`mailto:${SITE.contactEmail}`} size="lg">
+          Email {SITE.contactEmail}
+        </Button>
+        <Button href="#get-involved" variant="outline" size="lg">Become a volunteer</Button>
+      </div>
     </div>
   </section>
 </BaseLayout>

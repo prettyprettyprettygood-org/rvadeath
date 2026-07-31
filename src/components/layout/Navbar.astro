@@ -1,5 +1,7 @@
 ---
 import { SITE } from '../../config/site';
+
+const navTarget = (href: string) => (href.includes('#') ? href.split('#')[1] : 'home');
 ---
 
 <header class="site-header">
@@ -14,7 +16,9 @@ import { SITE } from '../../config/site';
         {
           SITE.nav.map((item) => (
             <li>
-              <a href={item.href}>{item.label}</a>
+              <a href={item.href} data-nav-target={navTarget(item.href)}>
+                {item.label}
+              </a>
             </li>
           ))
         }
@@ -22,3 +26,32 @@ import { SITE } from '../../config/site';
     </nav>
   </div>
 </header>
+
+<script>
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>('.site-nav a[data-nav-target]');
+
+  const setActive = (id: string) => {
+    navLinks.forEach((link) => {
+      link.classList.toggle('active', link.dataset.navTarget === id);
+    });
+  };
+
+  const sections = Array.from(navLinks)
+    .map((link) => (link.dataset.navTarget ? document.getElementById(link.dataset.navTarget) : null))
+    .filter((section): section is HTMLElement => section !== null);
+
+  if (sections.length) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActive(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: '-45% 0px -50% 0px', threshold: 0 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+  }
+</script>

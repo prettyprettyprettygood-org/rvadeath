@@ -1,4 +1,5 @@
 ---
+import Icon from '../ui/Icon.astro';
 import { SITE } from '../../config/site';
 
 const year = new Date().getFullYear();
@@ -6,27 +7,38 @@ const year = new Date().getFullYear();
 
 <footer class="site-footer">
   <div class="site-footer-inner container">
-    <div class="footer-copy">
-      <p>{SITE.name}</p>
-      <p>
-        Serving Richmond and the surrounding counties, {SITE.yearStarted} - {year}
+    <div class="footer-col footer-brand">
+      <span class="footer-kicker">Richmond, Virginia</span>
+      <p class="footer-logo">{SITE.name}</p>
+      <a href={`mailto:${SITE.contactEmail}`} class="footer-contact-row" aria-label="Send an email">
+        <Icon name="mail" size={16} />
+        <span>{SITE.contactEmail}</span>
+      </a>
+    </div>
+
+    <div class="footer-col footer-center">
+      <nav aria-label="Footer">
+        <ul class="footer-links">
+          {
+            SITE.footerLinks.map((item) => (
+              <li>
+                <a href={item.href}>{item.label}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <p class="footer-copyright">&copy; {year} {SITE.name}. All rights reserved.</p>
+      <p class="footer-built-by">
+        Built by <a href="https://www.prettyprettyprettygood.org/">Pretty Pretty Pretty Good</a>
       </p>
     </div>
 
-    <nav aria-label="Footer">
-      <ul class="footer-links">
-        {
-          SITE.footerLinks.map((item) => (
-            <li>
-              <a href={item.href}>{item.label}</a>
-            </li>
-          ))
-        }
-      </ul>
-    </nav>
-
-    <a href={`mailto:${SITE.contactEmail}`} class="footer-contact" aria-label="Send an email">
-      {SITE.contactEmail}
-    </a>
+    <div class="footer-col footer-end">
+      <a href="#main-content" class="footer-back-to-top" aria-label="Back to top">
+        <Icon name="arrow-up" size={20} />
+      </a>
+    </div>
   </div>
 </footer>

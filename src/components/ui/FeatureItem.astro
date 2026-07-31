@@ -12,12 +12,10 @@ const { title, href, class: className = '' } = Astro.props;
   <span class="feature-item-icon" aria-hidden="true">
     <slot name="icon" />
   </span>
-  <div class="feature-item-body">
-    <p class="feature-item-title">
-      {href ? <a href={href}>{title}</a> : title}
-    </p>
-    <div class="feature-item-description">
-      <slot />
-    </div>
+  <p class="feature-item-title">
+    {href ? <a href={href}>{title}</a> : title}
+  </p>
+  <div class="feature-item-description">
+    <slot />
   </div>
 </li>
