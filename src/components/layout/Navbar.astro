@@ -1,4 +1,5 @@
 ---
+import Icon from '../ui/Icon.astro';
 import { SITE } from '../../config/site';
 
 const navTarget = (href: string) => (href.includes('#') ? href.split('#')[1] : 'home');
@@ -34,12 +35,64 @@ const navTarget = (href: string) => (href.includes('#') ? href.split('#')[1] : '
             </li>
           ))
         }
+        <li class="nav-divider" aria-hidden="true"></li>
+        <li class="nav-theme-item">
+          <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="false">
+            <Icon name="sun" size={20} class="theme-toggle-icon theme-toggle-icon--sun" />
+            <Icon name="moon" size={20} class="theme-toggle-icon theme-toggle-icon--moon" />
+          </button>
+        </li>
       </ul>
     </nav>
   </div>
 </header>
 
 <script>
+  const themeToggle = document.getElementById('theme-toggle');
+  const metaThemeColor = document.getElementById('meta-theme-color');
+
+  const themeColors: Record<'light' | 'dark', string> = {
+    light: '#ffffff',
+    dark: '#16181c',
+  };
+
+  const syncThemeToggle = (theme: 'light' | 'dark') => {
+    const next = theme === 'dark' ? 'light' : 'dark';
+    themeToggle?.setAttribute('aria-pressed', String(theme === 'dark'));
+    themeToggle?.setAttribute('aria-label', `Switch to ${next} theme`);
+    metaThemeColor?.setAttribute('content', themeColors[theme]);
+  };
+
+  syncThemeToggle(document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light');
+
+  themeToggle?.addEventListener('click', () => {
+    const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = nextTheme;
+    syncThemeToggle(nextTheme);
+
+    try {
+      localStorage.setItem('theme', nextTheme);
+    } catch {
+      // localStorage unavailable (e.g. private browsing) — theme just won't persist.
+    }
+  });
+
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+    let storedTheme: string | null = null;
+    try {
+      storedTheme = localStorage.getItem('theme');
+    } catch {
+      storedTheme = null;
+    }
+
+    // An explicit user choice takes precedence over the OS/browser setting.
+    if (storedTheme === 'light' || storedTheme === 'dark') return;
+
+    const systemTheme = event.matches ? 'dark' : 'light';
+    document.documentElement.dataset.theme = systemTheme;
+    syncThemeToggle(systemTheme);
+  });
+
   const navToggle = document.querySelector<HTMLButtonElement>('.nav-toggle');
   const siteNav = document.getElementById('site-nav');
 

@@ -27,9 +27,22 @@ const imageURL = new URL(image, SITE.url).toString();
     <script is:inline>
       document.documentElement.classList.remove('no-js');
       document.documentElement.classList.add('js');
+
+      try {
+        const storedTheme = localStorage.getItem('theme');
+        const theme =
+          storedTheme === 'light' || storedTheme === 'dark'
+            ? storedTheme
+            : window.matchMedia('(prefers-color-scheme: dark)').matches
+              ? 'dark'
+              : 'light';
+        document.documentElement.dataset.theme = theme;
+      } catch {
+        document.documentElement.dataset.theme = 'light';
+      }
     </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#ffffff" id="meta-theme-color" />
     <title>{title}</title>
 
     <meta property="og:type" content="website" />

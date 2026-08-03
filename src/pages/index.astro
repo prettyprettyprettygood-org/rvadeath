@@ -12,10 +12,18 @@ import { SITE } from '../config/site';
     <div class="grid grid-2 hero-grid">
       <div class="hero-photo">
         <img
-          src="/death-collab-logo.jpg"
+          src="/death-collab-logo-light.png"
           alt="RVA Death Collaborative logo: a hand-drawn ferryman poling a boat beneath the Richmond floodwall arches."
           width="903"
           height="898"
+          class="hero-logo hero-logo--light"
+        />
+        <img
+          src="/death-collab-logo-dark.png"
+          alt="RVA Death Collaborative logo: a hand-drawn ferryman poling a boat beneath the Richmond floodwall arches."
+          width="903"
+          height="898"
+          class="hero-logo hero-logo--dark"
         />
       </div>
       <div class="stack">
@@ -175,10 +183,6 @@ import { SITE } from '../config/site';
 </BaseLayout>
 
 <style>
-  .hero {
-    background: #ffffff;
-  }
-
   .hero-grid {
     align-items: center;
   }
@@ -189,13 +193,25 @@ import { SITE } from '../config/site';
     padding: var(--space-8);
   }
 
-  .hero-photo img {
+  .hero-logo {
     display: block;
     inline-size: 100%;
     max-inline-size: 22rem;
     block-size: auto;
     aspect-ratio: 1 / 1;
     object-fit: contain;
+  }
+
+  .hero-logo--dark {
+    display: none;
+  }
+
+  :root[data-theme='dark'] .hero-logo--light {
+    display: none;
+  }
+
+  :root[data-theme='dark'] .hero-logo--dark {
+    display: block;
   }
 
   .hero-actions--end {
