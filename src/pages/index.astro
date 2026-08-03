@@ -12,18 +12,19 @@ import { SITE } from '../config/site';
     <div class="grid grid-2 hero-grid">
       <div class="hero-photo">
         <img
-          src="/support.jpg"
-          alt="Four friends stand arm in arm on a hillside, backs to the camera, looking out over a sunlit valley."
-          width="1920"
-          height="1280"
+          src="/death-collab-logo.jpg"
+          alt="RVA Death Collaborative logo: a hand-drawn ferryman poling a boat beneath the Richmond floodwall arches."
+          width="903"
+          height="898"
         />
       </div>
       <div class="stack">
-        <p class="kicker">RVA Death Collaborative</p>
+        <p class="kicker">Richmond, Virginia</p>
         <h1>A steady hand to hold, when it matters most.</h1>
         <p class="hero-copy">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus euismod, nunc quis
-          consequat cursus, mi ligula fermentum elit, id feugiat lacus enim id justo.
+          The RVA Death Collaborative connects the terminally ill, the dying, their caregivers,
+          and the bereaved with a real-time network of community volunteers &mdash; because death
+          care is community care.
         </p>
         <div class="hero-actions hero-actions--end">
           <Button href="#get-involved">Become a volunteer</Button>
@@ -37,30 +38,34 @@ import { SITE } from '../config/site';
     <div class="stack">
       <p class="kicker">About Us</p>
       <h2>Companioning the dying, their caregivers, and the bereaved.</h2>
-      <p class="hero-copy">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt
-        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+      <p class="hero-copy copy-wide">
+        The RVA Death Collaborative is a Richmond-based community group that treats death care as
+        community care. We host information sessions and public gatherings across the Richmond
+        region, inviting everyday neighbors &mdash; cooks, gardeners, artists, and friends &mdash;
+        to take part in supporting people through the end of life.
       </p>
     </div>
 
     <ul class="feature-row">
-      <FeatureItem title="Presence">
+      <FeatureItem title="Community volunteers">
         <Fragment slot="icon">
           <Icon name="heart-handshake" size={20} />
         </Fragment>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+        Building a network of community volunteers to provide timely, personalized support for
+        those in need.
       </FeatureItem>
-      <FeatureItem title="Practical support">
+      <FeatureItem title="Public education">
         <Fragment slot="icon">
-          <Icon name="hand-heart" size={20} />
+          <Icon name="megaphone" size={20} />
         </Fragment>
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.
+        Hosting educational events in partnership with the community to raise awareness, spark
+        conversation, and reduce stigma around death.
       </FeatureItem>
-      <FeatureItem title="Grief companioning">
+      <FeatureItem title="Resource guide">
         <Fragment slot="icon">
-          <Icon name="users" size={20} />
+          <Icon name="book-open" size={20} />
         </Fragment>
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.
+        Creating a comprehensive resource guide for the bereaved and those facing the end of life.
       </FeatureItem>
     </ul>
   </section>
@@ -70,73 +75,127 @@ import { SITE } from '../config/site';
       <p class="kicker">Get Involved</p>
       <h2>How volunteering with us works.</h2>
       <p class="hero-copy">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis
-        iste natus error sit voluptatem accusantium doloremque laudantium.
+        No medical background is required &mdash; just a willingness to show up. Here's what it
+        looks like to join our network of community volunteers.
       </p>
     </div>
 
     <ol class="timeline">
       <TimelineItem title="Reach out" eyebrow="Step 1">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-        ut labore et dolore magna aliqua. Fill out our short interest form and a member of our
-        team will follow up within a few days to answer any questions you have.
+        Fill out our short interest form and a member of our team will follow up to talk through
+        how your time, skills, and comfort level might be a fit.
       </TimelineItem>
       <TimelineItem title="Orientation and training" eyebrow="Step 2">
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Attend a training session covering presence, boundaries, and practical
-        end-of-life support, led by experienced volunteers.
+        Attend a session covering presence, boundaries, and practical, non-medical end-of-life
+        support, led by experienced doulas and volunteers.
       </TimelineItem>
       <TimelineItem title="Get matched" eyebrow="Step 3">
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-        nulla pariatur. We'll connect you with a family or individual whose needs fit your
-        availability, skills, and comfort level.
+        We'll connect you with a neighbor whose needs fit your availability and skills, whether
+        that's cooking a meal, tending a garden, or simply sitting with someone.
       </TimelineItem>
       <TimelineItem title="Show up with presence" eyebrow="Step 4">
-        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-        anim id est laborum. Visit regularly, offer a steady presence, and lean on our team for
-        support whenever you need it.
+        Visit regularly, offer a steady presence, and lean on our community and team for support
+        whenever you need it.
       </TimelineItem>
     </ol>
-
-    <div class="hero-actions hero-actions--center">
-      <Button href="#contact">Become a volunteer</Button>
-    </div>
   </section>
 
   <section class="section" id="contact">
     <div class="card contact-card">
-      <div class="contact-icon" aria-hidden="true">
-        <Icon name="mail" size={26} />
-      </div>
-      <p class="kicker">Contact</p>
-      <h2>Reach out to our team.</h2>
-      <p class="hero-copy">
-        We're here for volunteers, caregivers, and anyone looking for support in Richmond and the
-        surrounding counties.
-      </p>
-      <div class="hero-actions hero-actions--center">
-        <Button href={`mailto:${SITE.contactEmail}`} size="lg">
-          Email {SITE.contactEmail}
-        </Button>
-        <Button href="#get-involved" variant="outline" size="lg">Become a volunteer</Button>
+      <div class="grid grid-2 contact-grid">
+        <div class="stack contact-intro">
+          <h2>Reach out to our team.</h2>
+          <p class="hero-copy">
+            We're here for volunteers, caregivers, and anyone looking for support in Richmond and
+            the surrounding counties.
+          </p>
+
+          <hr class="contact-divider" />
+
+          <div class="contact-methods">
+            <a href={`mailto:${SITE.contactEmail}`} class="contact-method">
+              <Icon name="mail" size={18} />
+              <span>{SITE.contactEmail}</span>
+            </a>
+            <a href={SITE.contactPhoneHref} class="contact-method">
+              <Icon name="phone" size={18} />
+              <span>{SITE.contactPhone}</span>
+            </a>
+            <a
+              href={SITE.facebookUrl}
+              class="contact-method contact-method--facebook"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg
+                class="facebook-icon"
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="currentColor"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path
+                  d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 1.848-.287 1.379-.301 1.44h-2.945v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 6.135 4.604 11.194 10.101 11.647Z"
+                ></path>
+              </svg>
+              <span>Facebook</span>
+              <Icon name="external-link" size={14} class="contact-method__external" />
+            </a>
+          </div>
+        </div>
+
+        <form class="intake-form contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+          <div class="intake-form__grid">
+            <label class="intake-form__field">
+              <span>Name</span>
+              <input type="text" name="name" autocomplete="name" required />
+            </label>
+            <label class="intake-form__field">
+              <span>Email</span>
+              <input type="email" name="email" autocomplete="email" required />
+            </label>
+            <label class="intake-form__field intake-form__field--full">
+              <span>Message</span>
+              <textarea name="message" rows="5" required></textarea>
+            </label>
+          </div>
+
+          <Button type="submit" disabled ariaLabel="Send message (temporarily disabled)">
+            Send message
+          </Button>
+          <p class="contact-form-note">
+            Online submissions aren't live yet &mdash; sending will be enabled soon.
+          </p>
+        </form>
       </div>
     </div>
   </section>
 </BaseLayout>
 
 <style>
+  .hero {
+    background: #ffffff;
+  }
+
   .hero-grid {
     align-items: center;
+  }
+
+  .hero-photo {
+    display: grid;
+    place-items: center;
+    padding: var(--space-8);
   }
 
   .hero-photo img {
     display: block;
     inline-size: 100%;
-    block-size: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-surface);
+    max-inline-size: 22rem;
+    block-size: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
   }
 
   .hero-actions--end {
@@ -146,10 +205,6 @@ import { SITE } from '../config/site';
   @media (width <= 960px) {
     .hero-grid {
       grid-template-columns: 1fr;
-    }
-
-    .hero-actions--end {
-      justify-content: flex-start;
     }
   }
 </style>

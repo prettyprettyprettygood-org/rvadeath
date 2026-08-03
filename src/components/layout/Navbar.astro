@@ -11,7 +11,19 @@ const navTarget = (href: string) => (href.includes('#') ? href.split('#')[1] : '
       <span class="brand-name">{SITE.shortName}</span>
     </a>
 
-    <nav aria-label="Primary" class="site-nav">
+    <button
+      type="button"
+      class="nav-toggle"
+      aria-label="Toggle menu"
+      aria-controls="site-nav"
+      aria-expanded="false"
+    >
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+
+    <nav aria-label="Primary" class="site-nav" id="site-nav">
       <ul>
         {
           SITE.nav.map((item) => (
@@ -28,6 +40,31 @@ const navTarget = (href: string) => (href.includes('#') ? href.split('#')[1] : '
 </header>
 
 <script>
+  const navToggle = document.querySelector<HTMLButtonElement>('.nav-toggle');
+  const siteNav = document.getElementById('site-nav');
+
+  const closeMenu = () => {
+    navToggle?.setAttribute('aria-expanded', 'false');
+    siteNav?.classList.remove('is-open');
+  };
+
+  navToggle?.addEventListener('click', () => {
+    const isOpen = siteNav?.classList.toggle('is-open');
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+
+  siteNav?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeMenu();
+  });
+
+  window.matchMedia('(width > 960px)').addEventListener('change', (event) => {
+    if (event.matches) closeMenu();
+  });
+
   const navLinks = document.querySelectorAll<HTMLAnchorElement>('.site-nav a[data-nav-target]');
 
   const setActive = (id: string) => {

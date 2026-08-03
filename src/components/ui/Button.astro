@@ -4,6 +4,7 @@ interface Props {
   variant?: 'solid' | 'outline' | 'ghost';
   size?: 'sm' | 'md' | 'lg';
   type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
   ariaLabel?: string;
   class?: string;
   target?: string;
@@ -15,6 +16,7 @@ const {
   variant = 'solid',
   size = 'md',
   type = 'button',
+  disabled = false,
   ariaLabel,
   class: className = '',
   target,
@@ -30,7 +32,7 @@ const buttonClass = `btn btn-${variant} btn-${size} ${className}`.trim();
       <slot />
     </a>
   ) : (
-    <button type={type} class={buttonClass} aria-label={ariaLabel}>
+    <button type={type} class={buttonClass} aria-label={ariaLabel} disabled={disabled}>
       <slot />
     </button>
   )

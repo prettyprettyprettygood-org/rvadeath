@@ -10,10 +10,6 @@ const year = new Date().getFullYear();
     <div class="footer-col footer-brand">
       <span class="footer-kicker">Richmond, Virginia</span>
       <p class="footer-logo">{SITE.name}</p>
-      <a href={`mailto:${SITE.contactEmail}`} class="footer-contact-row" aria-label="Send an email">
-        <Icon name="mail" size={16} />
-        <span>{SITE.contactEmail}</span>
-      </a>
     </div>
 
     <div class="footer-col footer-center">
@@ -29,10 +25,12 @@ const year = new Date().getFullYear();
         </ul>
       </nav>
 
-      <p class="footer-copyright">&copy; {year} {SITE.name}. All rights reserved.</p>
-      <p class="footer-built-by">
-        Built by <a href="https://www.prettyprettyprettygood.org/">Pretty Pretty Pretty Good</a>
-      </p>
+      <div class="footer-legal">
+        <p class="footer-copyright">&copy; {year} {SITE.name}. All rights reserved.</p>
+        <p class="footer-built-by">
+          Built by <a href="https://www.prettyprettyprettygood.org/">Pretty Pretty Pretty Good</a>
+        </p>
+      </div>
     </div>
 
     <div class="footer-col footer-end">
